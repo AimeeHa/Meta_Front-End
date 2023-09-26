@@ -1,12 +1,21 @@
+import hero from '../assets/hero.jpg';
+
 export default function Hero() {
   return (
     <section className="hero">
-      <div className="hero_container">
-        <h1 className="hero_title">Welcome to my website!</h1>
-        <p className="hero_subtitle">
-          This is my first React project. I hope you enjoy it!
-        </p>
-      </div>
+      <section className="hero-container">
+        <section className="hero-text">
+          <h1 className="hero-title">Little Lemon</h1>
+          <h2 className="hero-subtitle">Chicago</h2>
+          <p className="hero-content">
+            We are a family owned Mediterranean restaurant, focused on
+            traditional recipes served with a mordern twist.
+          </p>
+          <button className="yellow-button">Reserve a Table</button>
+        </section>
+
+        <img src={hero} alt="hero" className="hero-image" />
+      </section>
     </section>
   );
 }

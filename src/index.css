@@ -25,6 +25,8 @@ code {
   --secondary-yellow-color: #fbdabb;
   --highlight-grey-color: #edefee;
   --highlight-black-color: #333333;
+  line-height: 1.5;
+  font-family: var(--main-font);
 }
 
 @media (width < 980px) {
