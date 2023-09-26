@@ -7,6 +7,24 @@
   font-weight: 600;
   border: 1px solid var(--primary-yellow-color);
   border-radius: 16px;
+  cursor: pointer;
+}
+
+.delivery-button {
+  margin-left: 24px;
+  background-color: transparent;
+  border: transparent;
+  position: absolute;
+  bottom: 36px;
+  padding: 0;
+  font-size: 16px;
+  font-family: var(--main-font);
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
 /* NAVBAR SECTION */
@@ -118,11 +136,72 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 650px;
+  font-family: var(--main-font);
 }
 
-.highlights_container {
+.highlights-container {
   width: var(--content-width);
+  display: flex;
+  flex-direction: column;
+}
+
+.highlights-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 56px;
+  font-family: var(--title-font);
+  font-weight: 400;
+  color: var(--highlight-black-color);
+}
+
+.highlights-articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.highlights-articles > article {
+  border-radius: 16px;
+  border: 1px solid var(--highlight-grey-color);
+  position: relative;
+  height: 600px;
+  background-color: var(--highlight-grey-color);
+}
+
+.highlights-articles > article > img {
+  width: 100%;
+  height: 280px;
+  border-radius: 16px;
+}
+
+.dish-title,
+.dish-description {
+  padding: 0px 24px;
+}
+
+.highlights-articles > article > h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dish-description {
+  color: var(--primary-green-color);
+}
+
+.dish-name {
+  font-size: 24px;
+  font-family: 'Markazi Text', serif;
+  font-weight: 550;
+  color: var(--highlight-black-color);
+}
+
+.dish-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--secondary-orange-color);
 }
 
 /* TESTIMONIALS SECTION */
@@ -133,8 +212,19 @@ main {
   height: 600px;
 }
 
-.testimonials_container {
+.testimonials-container {
   width: var(--content-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonials-title {
+  font-size: 36px;
+  font-family: var(--title-font);
+  font-weight: 400;
+  color: var(--highlight-black-color);
 }
 
 /* ABOUT SECTION */

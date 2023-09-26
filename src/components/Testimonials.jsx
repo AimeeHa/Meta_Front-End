@@ -1,9 +1,9 @@
 export default function Testimonials() {
   return (
     <section className="testimonials">
-      <div className="testimonials_container">
-        <h2 className="testimonials_title">Testimonials</h2>
-      </div>
+      <section className="testimonials-container">
+        <h1 className="testimonials-title">Testimonials</h1>
+      </section>
     </section>
   );
 }
