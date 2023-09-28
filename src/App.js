@@ -1,4 +1,5 @@
-import './App.css';
+import './static/App.css';
+import './static/Button.css';
 import About from './components/About';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
