@@ -29,7 +29,7 @@ export default function Highlights() {
   ];
 
   return (
-    <section className="highlights">
+    <section id="menu" className="highlights">
       <section className="highlights-container">
         <section className="highlights-header">
           <h1>Specials</h1>

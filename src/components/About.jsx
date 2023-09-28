@@ -2,7 +2,7 @@ import founders from '../assets/founders.jpg';
 
 export default function About() {
   return (
-    <section className="about">
+    <section id="about">
       <section className="about-container">
         <h2 className="about-title">About Us</h2>
         <p className="about-content">
