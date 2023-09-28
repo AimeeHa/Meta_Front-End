@@ -3,8 +3,46 @@ import Header from './components/Header';
 import { HeroContent } from './components/Hero';
 import './static/Booking.css';
 import './static/Button.css';
+import { useReducer, useState } from 'react';
+import fetchAPI from './APIs/fetchAPI';
+import BookingForm from './components/BookingForm';
 
 export default function Booking() {
+  const [isFetching, setIsFetching] = useState(false);
+
+  function availableTimesReducer(state, action) {
+    switch (action.type) {
+      case 'UPDATE_TIMES':
+        const newState = Array.isArray(state) ? state : [];
+        const newTimes = Array.isArray(action.payload) ? action.payload : [];
+        const newAvailableTimes = newTimes.filter(
+          (time) => !newState.includes(time),
+        );
+        return newAvailableTimes;
+      default:
+        return state;
+    }
+  }
+
+  // Initialize the state using useReducer
+  const [availableTimes, dispatch] = useReducer(availableTimesReducer, []);
+
+  function updateTimes(newTimes) {
+    dispatch({ type: 'UPDATE_TIMES', payload: newTimes });
+  }
+
+  function initializeTimes(selectedDate) {
+    setIsFetching(true);
+    fetchAPI
+      .fetchAvailableTimes(selectedDate)
+      .then((response) => {
+        updateTimes(response.availableTimes);
+      })
+      .catch((error) => {
+        console.error('Error initializing available times:', error);
+      });
+  }
+
   return (
     <>
       <Header />
@@ -15,48 +53,12 @@ export default function Booking() {
       )}
       <section className="booking">
         <div>Select your table</div>
-        <form>
-          <div className="booking-form">
-            <div className="booking-form-item">
-              <label htmlFor="date">Date</label>
-              <input type="date" name="date" id="date" />
-            </div>
-            <div className="booking-form-item">
-              <label htmlFor="time">Time</label>
-              <input type="time" name="time" id="time" />
-            </div>
-            <div className="booking-form-item">
-              <label htmlFor="guests">Guests</label>
-              <input
-                type="number"
-                name="guests"
-                id="guests"
-                min="1"
-                max="10"
-                defaultValue="1"
-              />
-            </div>
-          </div>
-          <div className="booking-form-item">
-            <label htmlFor="name">Name</label>
-            <input type="text" name="name" id="name" />
-          </div>
-          <div className="booking-form-item">
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" />
-          </div>
-          <div className="booking-form-item">
-            <label htmlFor="phone">Phone</label>
-            <input type="tel" name="phone" id="phone" />
-          </div>
-          <div className="booking-form-item">
-            <label htmlFor="message">Message</label>
-            <textarea name="message" id="message" rows="5"></textarea>
-          </div>
-          <button type="submit" className="yellow-button">
-            Reserve
-          </button>
-        </form>
+        <BookingForm
+          availableTimes={availableTimes}
+          updateTimes={updateTimes}
+          initializeTimes={initializeTimes}
+          isFetching={isFetching}
+        />
       </section>
       <Footer />
     </>
