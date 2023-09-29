@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import Booking from './Booking';
 import { Main } from './Main';
-import ConfirmedBooking from './ConfirmedBooking';
+import ConfirmedBooking from './components/ConfirmedBooking';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 

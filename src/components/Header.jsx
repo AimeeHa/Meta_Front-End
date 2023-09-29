@@ -46,7 +46,12 @@ export default function Header() {
                 <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
                   <CloseRoundedIcon style={{ width: '30px', height: '30px' }} />
                 </div>
-                {Navbar('navbar-list-small', 'navbar-item', 'navbar-link')}
+                {Navbar(
+                  'navbar-list-small',
+                  'navbar-item',
+                  'navbar-link',
+                  setIsMenuOpen,
+                )}
               </nav>
             </>
           ) : (
@@ -63,7 +68,7 @@ export default function Header() {
   }
 }
 
-export function Navbar(ulClassName, liClassName, aClassName) {
+export function Navbar(ulClassName, liClassName, aClassName, setIsMenuOpen?) {
   const navItems = [
     { name: 'Home', link: '/' },
     { name: 'About', link: '/#about' },
@@ -86,6 +91,7 @@ export function Navbar(ulClassName, liClassName, aClassName) {
                 e.preventDefault();
                 element.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
+              setIsMenuOpen && setIsMenuOpen(false);
             }}
           >
             <Link to={item.link} className={aClassName}>

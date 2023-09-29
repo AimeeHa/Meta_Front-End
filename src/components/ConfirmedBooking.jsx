@@ -1,7 +1,7 @@
-import Header from './components/Header';
-import Footer from './components/Footer';
-import { HeroContent } from './components/Hero';
-import './static/Booking.css';
+import Header from './Header';
+import Footer from './Footer';
+import { HeroContent } from './Hero';
+import '../static/Booking.css';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 
 export default function ConfirmedBooking() {
@@ -25,7 +25,8 @@ export default function ConfirmedBooking() {
           <h1>Thank you for your reservation!</h1>
           <p>
             We look forward to welcoming you to Little Lemon. If you have any
-            questions, please feel free to contact us at
+            questions, please feel free to reach out to us at
+            customerservice@littlelemon.com.
           </p>
         </div>
       </section>

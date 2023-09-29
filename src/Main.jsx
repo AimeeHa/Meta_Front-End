@@ -16,36 +16,38 @@ export function Main(props) {
 
   function availableTimesReducer(state, action) {
     const selectedSlots = state.selectedSlots ?? [];
+
+    // helper function to export updated avaliable times
+    function exportResults(currentDate, allSlots, selectedSlots) {
+      const availableTimes = allSlots.filter((slot) => {
+        return !selectedSlots.some((selected) => {
+          return selected.date === currentDate && selected.time === slot;
+        });
+      });
+
+      return {
+        currentDate,
+        allSlots,
+        selectedSlots,
+        availableTimes,
+      };
+    }
+
     switch (action.type) {
       case 'REMOVE_SELECTED_TIME':
         // payload should include date and time {date: , time: }
         const selectedTime = action.payload;
         const newSelectedSlots = [...selectedSlots, selectedTime];
-        return {
-          currentDate: state.currentDate,
-          allSlots: state.allSlots,
-          selectedSlots: newSelectedSlots,
-          availableTimes: state.allSlots.filter((slot) => {
-            return !newSelectedSlots.some((selected) => {
-              return (
-                selected.date === state.currentDate && selected.time === slot
-              );
-            });
-          }),
-        };
+        return exportResults(
+          state.currentDate,
+          state.allSlots,
+          newSelectedSlots,
+        );
 
       case 'INITIALIZE':
         const currentDate = action.payload.date;
-        return {
-          currentDate,
-          allSlots: action.payload.times,
-          selectedSlots,
-          availableTimes: action.payload.times.filter((slot) => {
-            return !selectedSlots.some((selected) => {
-              return selected.date === currentDate && selected.time === slot;
-            });
-          }),
-        };
+        return exportResults(currentDate, action.payload.times, selectedSlots);
+
       default:
         return state;
     }

@@ -417,6 +417,7 @@ main {
 
   .footer-container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
   }
 }
 
@@ -457,5 +458,14 @@ main {
   .founders {
     width: 320px;
     height: 240px;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
   }
 }
