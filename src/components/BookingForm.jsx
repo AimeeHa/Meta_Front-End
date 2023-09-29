@@ -32,6 +32,7 @@ export default function BookingForm() {
     submitForm(formData, (res) => {
       if (res.status === 200) {
         navigate('/confirmed');
+        console.log('Booking confirmed');
       }
     });
     updateTimes(date, time);

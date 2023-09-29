@@ -70,6 +70,11 @@ select:focus {
   padding: 0px 12px;
 }
 
+.confirmed-message > p {
+  font-family: var(--main-font);
+  text-align: center;
+}
+
 @media (width < 660px) {
   .booking-form {
     width: 70%;

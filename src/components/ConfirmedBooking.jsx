@@ -24,8 +24,8 @@ export default function ConfirmedBooking() {
           />
           <h1>Thank you for your reservation!</h1>
           <p>
-            We look forward to welcoming you to Little Lemon. If you have any
-            questions, please feel free to reach out to us at
+            We look forward to welcoming you to Little Lemon. <br /> If you have
+            any questions, please feel free to reach out to us at
             customerservice@littlelemon.com.
           </p>
         </div>
