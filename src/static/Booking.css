@@ -1,6 +1,83 @@
-.booking {
+.booking,
+.confirmed {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-family: var(--title-font);
+  color: var(--highlight-black-color);
+  font-weight: 500;
+  font-size: 18px;
+  width: 100vw;
+}
+
+.booking-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  width: 40%;
+  margin-top: 36px;
+  padding: 12px 48px;
+  border-radius: 16px;
+  background-color: var(--highlight-grey-color);
+}
+
+.booking-form-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.booking-form-item input,
+select {
+  width: 100%;
+  height: 36px;
+  border-radius: 16px;
+  border: 1px solid var(--primary-green-color);
+  padding: 0px 12px;
+  font-family: var(--main-font);
+  color: var(--primary-green-color);
+  font-size: 16px;
+}
+
+.booking-form-item input:focus,
+select:focus {
+  border: var(--secondary-orange-color) 1px solid;
+  outline: transparent;
+}
+
+.booking-form-item select {
+  width: calc(100% + 24px);
+}
+
+.booking-button {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+.confirmed-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+  padding: 0px 12px;
+}
+
+@media (width < 660px) {
+  .booking-form {
+    width: 70%;
+  }
+}
+
+@media (width < 900px) {
+  .booking-form {
+    width: 60%;
+  }
 }

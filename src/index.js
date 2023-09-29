@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Booking from './Booking';
+import { Main } from './Main';
+import ConfirmedBooking from './ConfirmedBooking';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -18,11 +20,17 @@ const router = createBrowserRouter([
     path: '/booking',
     element: <Booking />,
   },
+  {
+    path: '/confirmed',
+    element: <ConfirmedBooking />,
+  },
 ]);
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Main>
+      <RouterProvider router={router} />
+    </Main>
   </React.StrictMode>,
 );
 

@@ -3,6 +3,7 @@ import logo_small from '../assets/logo_small.png';
 import { useState, useEffect } from 'react';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   const [isLargeScreen, setIsLargeScreen] = useState(true);
@@ -87,9 +88,9 @@ export function Navbar(ulClassName, liClassName, aClassName) {
               }
             }}
           >
-            <a href={item.link} className={aClassName}>
+            <Link to={item.link} className={aClassName}>
               {item.name}
-            </a>
+            </Link>
           </li>
         );
       })}
