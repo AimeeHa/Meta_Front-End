@@ -5,11 +5,12 @@ import { renderHook, act } from '@testing-library/react-hooks';
 import { useReducer } from 'react';
 import availableTimesReducer from './Booking';
 
-test('Renders the BookingForm heading', () => {
-  render(<BookingForm />); //comment out the navigate and useNavigate lines in BookingForm.jsx lines 13 & 34
-  const headingElement = screen.getByText('Reserve');
-  expect(headingElement).toBeInTheDocument();
-});
+const mockedUsedNavigate = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => mockedUsedNavigate,
+}));
 
 test('User is not able to submit the form if phone number is not 11 digits', () => {
   const phoneLength = 11;
@@ -23,6 +24,12 @@ test('User is not able to submit the form if phone number is not 11 digits', () 
   fireEvent.click(submitButton);
 
   expect(handleSubmit).toHaveBeenCalledTimes(0);
+});
+
+test('Renders the BookingForm heading', () => {
+  render(<BookingForm />);
+  const headingElement = screen.getByText('Reserve');
+  expect(headingElement).toBeInTheDocument();
 });
 
 // describe('BookingForm', () => {
