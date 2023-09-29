@@ -1,48 +1,5 @@
-// Create a mock API as Meta script file no longer available
-const SepDates = [
-  '2023-09-01',
-  '2023-09-02',
-  '2023-09-03',
-  '2023-09-04',
-  '2023-09-05',
-  '2023-09-06',
-  '2023-09-07',
-  '2023-09-08',
-  '2023-09-09',
-  '2023-09-10',
-  '2023-09-11',
-  '2023-09-12',
-  '2023-09-13',
-  '2023-09-14',
-  '2023-09-15',
-  '2023-09-16',
-  '2023-09-17',
-  '2023-09-18',
-  '2023-09-19',
-  '2023-09-20',
-  '2023-09-21',
-  '2023-09-22',
-  '2023-09-23',
-  '2023-09-24',
-  '2023-09-25',
-  '2023-09-26',
-  '2023-09-27',
-  '2023-09-28',
-  '2023-09-29',
-  '2023-09-30',
-];
-const OctDates = [
-  '2023-10-01',
-  '2023-10-02',
-  '2023-10-03',
-  '2023-10-04',
-  '2023-10-05',
-  '2023-10-06',
-  '2023-10-07',
-  '2023-10-08',
-  '2023-10-09',
-  '2023-10-10',
-];
+// A self-created mock API as Meta script file no longer available
+const Slots = generateSlots('2023-08-01', '2023-10-31', 30);
 
 const fetchAPI = {
   fetchAvailableTimes: (selectedDate) => {
@@ -50,14 +7,29 @@ const fetchAPI = {
     return new Promise((resolve, reject) => {
       // Simulate a delay to mimic network latency
       setTimeout(() => {
-        if (SepDates.includes(selectedDate)) {
-          const availableTimes = ['12:00', '12:30', '13:00', '13:30', '14:00'];
-          resolve({ availableTimes });
-        } else if (OctDates.includes(selectedDate)) {
-          const availableTimes = ['18:00', '18:30', '19:00', '19:30', '20:00'];
+        const filteredDate = Slots.find((date) => date.date === selectedDate);
+        if (filteredDate.times?.length > 0) {
+          const availableTimes = filteredDate.times;
           resolve({ availableTimes });
         } else {
-          reject(new Error('Date not found'));
+          reject(new Error('No available times'));
+        }
+      }, 1000);
+    });
+  },
+
+  // To be called when the user submits the form
+  updateAvailableTimes: (selectedDate, selectedTime) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const filteredDate = Slots.find((date) => date.date === selectedDate);
+        if (filteredDate.times?.length > 0) {
+          filteredDate.times = filteredDate.times.filter(
+            (time) => time !== selectedTime,
+          );
+          resolve({ message: 'Updated available times' });
+        } else {
+          reject(new Error('No available times'));
         }
       }, 1000);
     });
@@ -65,3 +37,39 @@ const fetchAPI = {
 };
 
 export default fetchAPI;
+
+// generating slots function -----------------------------------------
+function generateSlots(startDate, endDate, intervalInMinutes) {
+  const slots = [];
+  const currentDate = new Date(startDate);
+  const endDateObj = new Date(endDate);
+
+  while (currentDate <= endDateObj) {
+    const date = currentDate.toISOString().split('T')[0];
+    const times = generateTimes(intervalInMinutes);
+    slots.push({ date, times });
+
+    currentDate.setDate(currentDate.getDate() + 1); // Move to the next day
+  }
+
+  return slots;
+}
+
+function generateTimes(intervalInMinutes) {
+  const times = [];
+  const startTime = new Date('1970-01-01T17:00:00');
+  const endTime = new Date('1970-01-01T22:31:00');
+
+  while (startTime <= endTime) {
+    times.push(formatTime(startTime));
+    startTime.setMinutes(startTime.getMinutes() + intervalInMinutes);
+  }
+
+  return times;
+}
+
+function formatTime(time) {
+  const hours = time.getHours().toString().padStart(2, '0');
+  const minutes = time.getMinutes().toString().padStart(2, '0');
+  return `${hours}:${minutes}`;
+}

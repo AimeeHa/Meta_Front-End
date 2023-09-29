@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import submitAPI from '../APIs/submitAPI';
+import fetchAPI from '../APIs/fetchAPI';
 
 export default function BookingForm({
   availableTimes,
@@ -36,6 +37,15 @@ export default function BookingForm({
       });
       setMessage(res.message);
 
+      // useReducer not working properly -> created another API to update available times instead
+      fetchAPI.updateAvailableTimes(date, time).then((response) => {
+        try {
+          console.log(response.message);
+        } catch (err) {
+          console.log(err.message);
+        }
+      });
+
       // Clear form after submission
       setDate(new Date());
       setTime('');
@@ -64,15 +74,6 @@ export default function BookingForm({
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log({
-            date,
-            time,
-            guests,
-            name,
-            email,
-            phone,
-            occasion,
-          });
           handleSubmit(e);
         }}
       >
