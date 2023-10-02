@@ -1,4 +1,4 @@
-# Location of Component Files
+<!-- # Location of Component Files
 
 ## /src
 
@@ -37,7 +37,42 @@
    - App.css
    - Booking.css
    - Button.css
+ -->
 
-# Results
+# **Little Lemon Reservation**
+
+## **Purpose**
+
+## **Content**
+
+TBU
+
+### **Pages & Features**
+
+> TBU
+
+#### **`/` (homepage)**
+
+![caption](img link)
+TBU
+
+## **How to run the application**
+
+- Make sure you have **Node v18** and above installed.
+
+- Install Front-end packages:
+
+```bash
+cd restaurant
+npm install
+```
+
+- Run Front-end (in a new terminal window or tab):
+
+```bash
+npm run start
+```
+
+## Results
 
 https://youtu.be/Z20yoqFOM_0
