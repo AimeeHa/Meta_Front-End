@@ -44,7 +44,7 @@
 ## **Purpose**
 
 The Little Lemon web app has now been enhanced to provide a seamless reservation experience for its visitors. Introducing the new Booking Form component, users can effortlessly reserve a table by entering essential details, including the preferred date, time, the number of guests, and even the special occasion, be it a birthday or an anniversary.
-What makes this experience even more user-friendly is the real-time display of existing booked table times and available slots, thanks to the utilisation of a complex hook known as `useReducer`. Moreover, a robust API has been created to fetch available slots data and handle the submission of booking forms. With these features, Little Lemon ensures a hassle-free and delightful dining experience for its customers.
+What makes this experience even more user-friendly is the real-time display of existing booked table times and available slots, thanks to the utilisation of a complex hooks like `useReducer` and `useContext`. Moreover, a robust API has been created to fetch available slots data and handle the submission of booking forms. With these features, Little Lemon ensures a hassle-free and delightful dining experience for its customers.
 
 This project was created for the Meta Front-End Developer Professional Certificate's capstone. The designs are done by myself following the type system provided by the course.
 
