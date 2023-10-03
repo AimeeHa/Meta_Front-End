@@ -54,7 +54,11 @@ This project was created for the Meta Front-End Developer Professional Certifica
 - `Booking.jsx` and `BookingForm.jsx` make up the Reservation page where customers can book their tables for upcomming dinning experiences.
 - `Main.jsx` is created as part of the project's requirements to interact with the booking APIs. In addition, I use this to provide a `BookingContext` to the Booking Form so any reserved dinning slots would still be stored on pages navigation.
 
-![Homepage]('./src/assets/results/homepage1.png')
+![Homepage](https://github.com/AimeeHa/Restaurant_Reservation/blob/master/src/assets/results/homepage1.png)
+![Homepage (cont.)](https://github.com/AimeeHa/Restaurant_Reservation/blob/master/src/assets/results/homepage2.png)
+![Homepage (cont.)](https://github.com/AimeeHa/Restaurant_Reservation/blob/master/src/assets/results/homepage3.png)
+![Reservation Page](https://github.com/AimeeHa/Restaurant_Reservation/blob/master/src/assets/results/booking.png)
+![Confirm Reservation](https://github.com/AimeeHa/Restaurant_Reservation/blob/master/src/assets/results/confirmation.png)
 
 ## **How to run the application**
 
