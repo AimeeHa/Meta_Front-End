@@ -43,18 +43,18 @@
 
 ## **Purpose**
 
-## **Content**
+The Little Lemon web app has now been enhanced to provide a seamless reservation experience for its visitors. Introducing the new Booking Form component, users can effortlessly reserve a table by entering essential details, including the preferred date, time, the number of guests, and even the special occasion, be it a birthday or an anniversary.
+What makes this experience even more user-friendly is the real-time display of existing booked table times and available slots, thanks to the utilisation of a complex hook known as `useReducer`. Moreover, a robust API has been created to fetch available slots data and handle the submission of booking forms. With these features, Little Lemon ensures a hassle-free and delightful dining experience for its customers.
 
-TBU
+This project was created for the Meta Front-End Developer Professional Certificate's capstone. The designs are done by myself following the type system provided by the course.
 
-### **Pages & Features**
+## **Pages & Features**
 
-> TBU
+- `App.js` contains the main homepage of Little Lemon website.
+- `Booking.jsx` and `BookingForm.jsx` make up the Reservation page where customers can book their tables for upcomming dinning experiences.
+- `Main.jsx` is created as part of the project's requirements to interact with the booking APIs. In addition, I use this to provide a `BookingContext` to the Booking Form so any reserved dinning slots would still be stored on pages navigation.
 
-#### **`/` (homepage)**
-
-![caption](img link)
-TBU
+![Homepage]('./src/assets/results/homepage1.png')
 
 ## **How to run the application**
 
@@ -67,7 +67,7 @@ cd restaurant
 npm install
 ```
 
-- Run Front-end (in a new terminal window or tab):
+- Run:
 
 ```bash
 npm run start
